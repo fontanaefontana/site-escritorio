@@ -9,56 +9,83 @@ body {
     font-family: 'Playfair Display', serif;
     background-color: #fff;
     color: #0D1F4D;
+    overflow-x: hidden;
 }
 
-/* Cabeçalho */
+/* ========= HEADER ========= */
 header {
     background-color: #040092;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 40px;
+    padding: 18px 25px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 header .logo img {
-    height: 55px;
+    height: 50px;
     width: auto;
 }
 
-/* Menu de navegação */
+/* MENU moderno */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 25px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 5px;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    opacity: 0.8;
 }
 
-/* Rodapé superior / faixa azul */
-.topo-rodape {
-    background-color: #0D1F4D;
-    color: #fff;
-    padding: 30px 20px;
-    text-align: center;
-    font-family: 'Lora', serif;
-    font-size: 16px;
+nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #D4AF37;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: .3s;
 }
 
-/* Banner */
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ========= DIVISORES ENTRE SEÇÕES ========= */
+section {
+    scroll-margin-top: 120px;
+    position: relative;
+}
+
+section::before {
+    content: "";
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+/* ========= BANNER ========= */
 .banner {
     height: 100vh;
     width: 100%;
@@ -70,346 +97,170 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    padding: 20px;
 }
 
 .banner::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-    z-index: 1;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.45);
 }
 
 .banner-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 850px;
 }
 
 .banner-content h1 {
     color: #fff;
-    font-size: 30px;
-    line-height: 1.5;
+    font-size: 32px;
+    line-height: 1.4;
     margin-bottom: 40px;
+    padding: 0 15px;
 }
 
+/* BOTÃO moderno */
 .btn-whatsapp {
     background-color: #38BF4E;
     color: white;
-    padding: 14px 28px;
-    border-radius: 8px;
+    padding: 15px 30px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 18px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: 0.3s;
-    margin-top: 30px;
 }
 
 .btn-whatsapp:hover {
-    background-color: #2e9c3f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.35);
 }
 
-/* Sobre Nós */
+/* ========= SOBRE ========= */
 .sobre-nos {
     background-color: #EBEBEB;
-    padding: 100px 20px;
+    padding: 120px 20px;
     text-align: center;
-}
-
-.sobre-nos-container h2 {
-    font-family: 'Playfair Display', serif;
-    color: #0D1F4D;
-    font-size: 42px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-.sobre-nos-container p {
-    font-family: 'Lora', serif;
-    color: #0D1F4D;
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 800px;
-    margin: 0 auto 25px auto;
-}
-
-/* Linha dourada separadora */
-.linha-dourada {
-    border: 0;
-    height: 2px;
-    width: 80px; 
-    background-color: #D4AF37;
-    margin: 30px auto;
-}
-
-.advogados {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-    flex-wrap: wrap;
 }
 
 .advogado {
-    width: 250px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding-bottom: 15px;
-    border: 2px solid #D4AF37;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: .3s;
 }
 
-.advogado img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.advogado:hover {
+    transform: translateY(-8px);
 }
 
-.nome-advogado {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: #0D1F4D;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.oab {
-    font-family: 'Lora', serif;
-    font-size: 16px;
-    color: #0D1F4D;
-}
-
-/* Áreas de Atuação */
-.areas {
-    background-color: #EBEBEB;
-    padding: 100px 20px;
-    text-align: center;
-}
-
-.areas-container .servicos {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #000;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-.linha-servico {
-    width: 40px;
-    height: 2px;
-    background-color: #000;
-    border: none;
-    margin: 0 auto 20px auto;
-}
-
-.areas-container h2 {
-    font-family: 'Playfair Display', serif;
-    color: #0D1F4D;
-    font-size: 36px;
-    margin-bottom: 50px;
-}
-
-.areas-quadrados {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
+/* ========= ÁREAS ========= */
 .area {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 30px 20px;
     width: 300px;
     text-align: center;
-    transition: transform 0.3s, border 0.3s;
-    border: 2px solid transparent;
+    transition: 0.3s;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .area:hover {
-    transform: scale(1.05);
-    border: 2px solid #D4AF37;
+    transform: translateY(-10px);
+    border-color: #D4AF37;
 }
 
-.icone-area {
-    font-size: 40px;
-    color: #0D1F4D;
-    margin-bottom: 15px;
-}
-
-.area h3 {
-    font-family: 'Playfair Display', serif;
-    color: #0D1F4D;
-    font-size: 20px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.area p {
-    font-family: 'Lora', serif;
-    color: #000;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-/* Avaliações */
-.avaliacoes {
-    background-color: #0D1F4D;
-    padding: 100px 20px;
-    text-align: center;
-}
-
-.avaliacoes h2 {
-    font-family: 'Playfair Display', serif;
-    color: #fff;
-    font-size: 36px;
-    margin-bottom: 30px;
-}
-
-.aviso {
-    font-family: 'Lora', serif;
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-.elfsight-app-e4fb9f81-90b2-44a8-a412-9a4db66f6830 {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Contato */
-.contato {
-    background-color: #EBEBEB;
-    padding: 100px 20px;
-    text-align: center;
-}
-
-.contato-container h2 {
-    font-family: 'Playfair Display', serif;
-    color: #0D1F4D;
-    font-size: 36px;
-    margin-bottom: 50px;
-}
-
-.contato-card-mapa {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
+/* ========= CONTATO (moderno) ========= */
 .contato-card {
     background-color: #fff;
-    border-radius: 10px;
-    padding: 30px 20px;
-    width: 280px;
-    text-align: center;
-    border: 2px solid #D4AF37;
+    border-radius: 12px;
+    padding: 35px 25px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    border: none;
 }
 
 .contato-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: #0D1F4D;
-    font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .contato-card p {
-    font-family: 'Lora', serif;
-    color: #000;
-    font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 17px;
 }
 
-.contato-card a {
-    color: #000;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.contato-card a:hover {
+.contato-card i {
     color: #0D1F4D;
+    margin-right: 8px;
 }
 
+/* Mapa */
 .mapa-contato iframe {
-    width: 500px;
-    max-width: 100%;
-    height: 300px;
-    border: 0;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(212,175,55,0.5);
+    width: 100%;
+    max-width: 500px;
+    height: 280px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(212,175,55,0.45);
 }
 
-/* Rodapé */
+/* ========= FOOTER ========= */
 footer {
     background-color: #0D1F4D;
     color: #fff;
     padding: 60px 20px;
     text-align: center;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
 }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-footer a:hover {
-    color: #38BF4E;
-}
-
-.footer-info p {
-    margin-bottom: 10px;
-    font-family: 'Lora', serif;
-    font-size: 16px;
-}
-
-.footer-info i {
-    margin-right: 8px;
-}
-
-/* Responsividade */
+/* ========= RESPONSIVIDADE FORTE ========= */
 @media (max-width: 900px) {
+
     header {
         flex-direction: column;
-        gap: 15px;
+        text-align: center;
+        gap: 12px;
+        padding: 15px;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 15px;
-        align-items: center;
+        gap: 12px;
     }
 
-    .areas-quadrados, .advogados, .contato-card-mapa {
-        flex-direction: column;
-        gap: 30px;
+    .banner {
+        background-position: center top;
+        height: 85vh;
     }
 
     .banner-content h1 {
         font-size: 24px;
     }
 
-    .btn-whatsapp {
-        font-size: 16px;
-        padding: 12px 24px;
+    .areas-quadrados,
+    .advogados,
+    .contato-card-mapa {
+        flex-direction: column;
+        gap: 35px;
     }
 
-    .sobre-nos-container h2,
-    .areas-container h2,
-    .avaliacoes h2,
-    .contato-container h2 {
-        font-size: 28px;
+    section::before {
+        top: -25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 20px;
+    }
+
+    .btn-whatsapp {
+        font-size: 16px;
+        padding: 12px 22px;
     }
 }

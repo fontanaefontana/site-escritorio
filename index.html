@@ -5,23 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fontana & Fontana</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonte Playfair Display -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <!-- Fonte Lora -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-    <!-- Ícones do Font Awesome -->
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&display=swap" rel="stylesheet">
+
+    <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Elfsight Google Reviews -->
+
+    <!-- Elfsight -->
     <script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
+
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- ========= HEADER ========= -->
     <header>
         <div class="logo">
             <img src="extracted_images/IMG_0722.png.png" alt="Fontana & Fontana">
         </div>
-        <nav>
+
+        <!-- BOTÃO HAMBÚRGUER (mobile) -->
+        <div class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- MENU -->
+        <nav id="menu-mobile">
             <ul>
                 <li><a href="#">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
@@ -32,36 +41,41 @@
         </nav>
     </header>
 
-    <!-- Rodapé superior / faixa azul logo abaixo do header -->
+    <!-- ========= FAIXA SUBHEADER ========= -->
     <div class="topo-rodape">
         Atendimento especializado em Direito Previdenciário e Trabalhista
     </div>
 
-    <!-- Banner -->
+    <!-- ========= BANNER ========= -->
     <section class="banner">
         <div class="banner-content">
             <h1>
-                Há mais de 25 anos defendendo trabalhadores e segurados <span class="inss-text">do INSS.</span> <br> Compromisso com ética, transparência e resultados.
+                Há mais de 25 anos defendendo trabalhadores e segurados <span class="inss-text">do INSS.</span><br>
+                Compromisso com ética, transparência e resultados.
             </h1>
-            <a href="https://wa.me/5511969112762" target="_blank" class="btn-whatsapp">
+
+            <a href="https://wa.me/5511969112762" class="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> FALE CONOSCO
             </a>
         </div>
     </section>
 
-    <!-- Sobre Nós -->
+    <!-- ========= SOBRE ========= -->
     <section class="sobre-nos" id="sobre">
         <div class="sobre-nos-container">
             <h2>SOBRE NÓS</h2>
-            <p>A Fontana & Fontana Sociedade de Advogados atua há mais de 25 anos nas áreas de Direito Previdenciário e Trabalhista, oferecendo atendimento jurídico ético e personalizado.</p>
-            <p>O escritório é referência Nacional pela dedicação na defesa dos direitos de trabalhadores, aposentados e segurados da Previdência Social.</p>
+            <p>A Fontana & Fontana Sociedade de Advogados atua há mais de 25 anos...</p>
+            <p>O escritório é referência Nacional pela dedicação...</p>
+
             <hr class="linha-dourada">
+
             <div class="advogados">
                 <div class="advogado">
                     <img src="extracted_images/eric.jpeg" alt="Eric Roberto Fontana">
                     <p class="nome-advogado">Eric Roberto Fontana</p>
                     <p class="oab">OAB 360.980-SP</p>
                 </div>
+
                 <div class="advogado">
                     <img src="extracted_images/erica.jpeg" alt="Erica Fontana">
                     <p class="nome-advogado">Erica Fontana</p>
@@ -71,7 +85,7 @@
         </div>
     </section>
 
-    <!-- Áreas de Atuação -->
+    <!-- ========= ÁREAS ========= -->
     <section class="areas" id="areas">
         <div class="areas-container">
             <p class="servicos">NOSSOS SERVIÇOS</p>
@@ -82,74 +96,93 @@
                 <div class="area">
                     <i class="fas fa-balance-scale icone-area"></i>
                     <h3>Direito Previdenciário</h3>
-                    <p>Aposentadorias, pensões, benefícios do INSS, revisões e planejamento previdenciário.</p>
+                    <p>Aposentadorias, pensões...</p>
                 </div>
+
                 <div class="area">
                     <i class="fas fa-briefcase icone-area"></i>
                     <h3>Direito Trabalhista</h3>
-                    <p>Rescisões, horas extras, assédio moral, acidentes de trabalho, indenizações e defesa dos direitos do trabalhador.</p>
+                    <p>Rescisões, horas extras...</p>
                 </div>
+
                 <div class="area">
                     <i class="fas fa-gavel icone-area"></i>
                     <h3>Civil</h3>
-                    <p>Inventário, usucapião, regularização de imóveis, danos morais.</p>
+                    <p>Inventário, usucapião...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Avaliações -->
+    <!-- ========= AVALIAÇÕES ========= -->
     <section class="avaliacoes" id="avaliacoes">
         <div class="avaliacoes-container">
             <h2>AVALIAÇÕES</h2>
             <p class="aviso">Confira o que nossos clientes dizem sobre nós:</p>
-            <!-- Elfsight Google Reviews -->
+
             <div class="elfsight-app-e4fb9f81-90b2-44a8-a412-9a4db66f6830"></div>
         </div>
     </section>
 
-    <!-- Contato -->
+    <!-- ========= CONTATO ========= -->
     <section class="contato" id="contato">
         <div class="contato-container">
             <h2>CONTATO</h2>
+
             <div class="contato-card-mapa">
+
                 <div class="contato-card">
                     <h3>Fontana & Fontana</h3>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511969112762" target="_blank">WhatsApp</a></p>
-                    <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/fontanaefontana_advogados" target="_blank">Instagram</a></p>
+
+                    <p><i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/5511969112762" target="_blank">WhatsApp</a>
+                    </p>
+
+                    <p><i class="fab fa-instagram"></i>
+                        <a href="https://instagram.com/fontanaefontana_advogados" target="_blank">
+                            Instagram
+                        </a>
+                    </p>
                 </div>
+
                 <div class="mapa-contato">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.789227822327!2d-46.53483998447457!3d-23.667774367673524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57d0eb85fcf1%3A0x1c3c2445b0edc3e3!2sR.%20Primeiro%20de%20Maio%2C%20202%20-%20Centro%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009015-040!5e0!3m2!1spt-BR!2sbr!4v1696661987654!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18..."
+                        loading="lazy"
+                        allowfullscreen></iframe>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Rodapé -->
+    <!-- ========= FOOTER ========= -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511969112762" target="_blank">+55 11 96911-2762</a></p>
-                <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/ericafontana.adv" target="_blank">@ericafontana.adv</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> Rua Primeiro de Maio, 202 - Centro de Santo André, CEP 09015-040, CJ 304</p>
+                <p><i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/5511969112762" target="_blank">+55 11 96911-2762</a>
+                </p>
+
+                <p><i class="fab fa-instagram"></i>
+                    <a href="https://instagram.com/ericafontana.adv" target="_blank">@ericafontana.adv</a>
+                </p>
+
+                <p><i class="fas fa-map-marker-alt"></i>
+                    Rua Primeiro de Maio, 202 – Santo André – SP
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll suave -->
+    <!-- ========= JS MENU MOBILE ========= -->
     <script>
-        const links = document.querySelectorAll('nav ul li a');
-        for (const link of links) {
-            link.addEventListener('click', function(e) {
-                if (this.hash !== "") {
-                    e.preventDefault();
-                    const hash = this.hash;
-                    document.querySelector(hash).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        }
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu-mobile');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
     </script>
 
 </body>
