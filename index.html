@@ -1,244 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fontana & Fontana</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontana & Fontana</title>
 
-  <style>
-    /* RESET */
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;background:#fff;color:#0D1F4D;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    a{color:inherit;text-decoration:none}
-    img,iframe{max-width:100%;display:block;border:0}
+    <link rel="stylesheet" href="style.css">
 
-    :root{
-      --primary:#040092;
-      --dark:#0D1F4D;
-      --accent:#D4AF37;
-      --whatsapp:#38BF4E;
-      --header-h:64px;
-    }
+    <!-- Fonte Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
-    /* HEADER */
-    header{position:fixed;left:0;right:0;top:0;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--primary);color:#fff;z-index:1200;box-shadow:0 6px 18px rgba(0,0,0,.12)}
-    .logo img{height:44px;width:auto}
+    <!-- Fonte Lora -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 
-    /* hamburger */
-    .hamb{display:none;font-size:22px;background:transparent;border:none;color:#fff;padding:8px;cursor:pointer}
-    nav{display:flex;gap:20px;align-items:center}
-    nav ul{display:flex;gap:18px;list-style:none}
-    nav a{color:#fff;font-weight:700;padding:6px 2px}
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /* Top band under header */
-    .topo-rodape{margin-top:var(--header-h);background:var(--dark);color:#fff;text-align:center;padding:8px 12px;font-size:14px}
-
-    /* Banner */
-    .banner{min-height:calc(60vh);display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 14px;background:#0b2b6b;color:#fff;position:relative}
-    .banner .inner{max-width:900px}
-    .banner h1{font-size:26px;line-height:1.35;margin-bottom:18px}
-    .btn-whatsapp{display:inline-flex;align-items:center;gap:10px;background:var(--whatsapp);color:#fff;padding:12px 18px;border-radius:999px;font-weight:800;box-shadow:0 8px 20px rgba(56,191,78,.16)}
-
-    /* Sections */
-    section{padding:54px 14px}
-    .sobre-nos{background:#f3f3f3;text-align:center}
-    .sobre-nos h2{font-size:26px;margin-bottom:12px}
-    .sobre-nos p{max-width:900px;margin:0 auto 12px;color:#1f335d}
-
-    .linha-dourada{width:84px;height:4px;background:var(--accent);margin:18px auto;border-radius:999px;border:0}
-
-    /* cards advogados */
-    .advogados{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-    .advogado{width:220px;background:#fff;border-radius:10px;overflow:hidden;padding-bottom:10px;border:2px solid var(--accent);text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.06)}
-    .advogado img{height:170px;object-fit:cover;width:100%}
-    .nome-advogado{font-weight:700;margin-top:10px}
-    .oab{color:#1f335d;margin-bottom:10px;font-size:14px}
-
-    /* areas */
-    .areas{background:#fff;text-align:center}
-    .areas h2{font-size:24px;margin-bottom:14px}
-    .areas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1100px;margin:18px auto 0}
-    .area{background:#fafafa;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.06);text-align:center}
-    .area h3{text-transform:uppercase;font-size:16px;margin:10px 0}
-
-    /* avaliacoes */
-    .avaliacoes{background:var(--dark);color:#fff;text-align:center;padding:48px 14px}
-    .avaliacoes h2{color:#fff;margin-bottom:10px}
-
-    /* contato */
-    .contato{background:#f7f7f7;text-align:center}
-    .contato h2{margin-bottom:12px}
-    .contato-grid{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:flex-start}
-    .contato-card{width:320px;background:#fff;border-radius:12px;padding:18px;box-shadow:0 12px 30px rgba(0,0,0,.08);text-align:left}
-    .mapa{width:500px;max-width:100%;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(212,175,55,.14)}
-    .mapa iframe{width:100%;height:300px;border:0;display:block}
-
-    /* footer */
-    footer{background:var(--dark);color:#fff;padding:28px 12px;text-align:center}
-
-    /* responsive */
-    @media (max-width:900px){
-      .hamb{display:block}
-      nav{position:fixed;left:0;right:0;top:var(--header-h);background:var(--primary);flex-direction:column;transform:translateY(-200%);transition:transform .28s;gap:8px;padding:12px 16px;z-index:1150}
-      nav.open{transform:translateY(0)}
-      nav ul{flex-direction:column;gap:12px;align-items:center}
-      .banner{min-height:45vh;padding:28px 12px}
-      .banner h1{font-size:20px}
-      .advogado{width:200px}
-      .contato-card{width:100%;max-width:420px}
-      .mapa iframe{height:240px}
-      :root{--header-h:58px}
-      .topo-rodape{margin-top:var(--header-h)}
-    }
-
-    @media (max-width:480px){
-      .banner h1{font-size:18px}
-      .advogado img{height:150px}
-      :root{--header-h:56px}
-    }
-
-    /* small helpers */
-    .center{max-width:1200px;margin:0 auto}
-    .muted{color:#6b6b6b}
-  </style>
+    <!-- Elfsight Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
+
 <body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="extracted_images/IMG_0722.png.png" alt="Fontana & Fontana">
+        </div>
 
-  <header role="banner">
-    <div class="logo"><img src="" alt="Fontana & Fontana" id="logoImg"></div>
-    <button class="hamb" id="hambBtn" aria-label="Abrir menu">☰</button>
-    <nav id="mainNav" aria-label="menu">
-      <ul>
-        <li><a href="#topo">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#areas">Áreas de Atuação</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#areas">Áreas de Atuação</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="topo-rodape" id="topo">Atendimento especializado em Direito Previdenciário e Trabalhista</div>
+    <!-- Faixa azul abaixo do header -->
+    <div class="topo-rodape">
+        Atendimento especializado em Direito Previdenciário e Trabalhista
+    </div>
 
-  <main>
-    <section class="banner" aria-label="banner">
-      <div class="inner">
-        <h1>Há mais de 25 anos defendendo trabalhadores e segurados do INSS.<br><small class="muted">Compromisso com ética, transparência e resultados.</small></h1>
-        <p style="margin-top:14px"><a class="btn-whatsapp" href="https://wa.me/5511969112762" target="_blank" rel="noopener">FALE CONOSCO</a></p>
-      </div>
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>
+                Há mais de 25 anos defendendo trabalhadores e segurados
+                <span class="inss-text">do INSS.</span><br>
+                Compromisso com ética, transparência e resultados.
+            </h1>
+
+            <a href="https://wa.me/5511969112762" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> FALE CONOSCO
+            </a>
+        </div>
     </section>
 
+    <!-- Sobre Nós -->
     <section class="sobre-nos" id="sobre">
-      <h2>SOBRE NÓS</h2>
-      <p>A Fontana & Fontana Sociedade de Advogados atua há mais de 25 anos nas áreas de Direito Previdenciário e Trabalhista, oferecendo atendimento jurídico ético e personalizado.</p>
-      <p>O escritório é referência Nacional pela dedicação na defesa dos direitos de trabalhadores, aposentados e segurados da Previdência Social.</p>
-      <div class="linha-dourada" aria-hidden="true"></div>
+        <div class="sobre-nos-container">
+            <h2>SOBRE NÓS</h2>
 
-      <div class="advogados">
-        <div class="advogado">
-          <img src="" alt="Eric Roberto Fontana" id="ericImg">
-          <p class="nome-advogado">Eric Roberto Fontana</p>
-          <p class="oab">OAB 360.980-SP</p>
+            <p>
+                A Fontana & Fontana Sociedade de Advogados atua há mais de 25 anos
+                nas áreas de Direito Previdenciário e Trabalhista, oferecendo atendimento
+                jurídico ético e personalizado.
+            </p>
+
+            <p>
+                O escritório é referência Nacional pela dedicação na defesa dos direitos
+                de trabalhadores, aposentados e segurados da Previdência Social.
+            </p>
+
+            <hr class="linha-dourada">
+
+            <div class="advogados">
+                <div class="advogado">
+                    <img src="extracted_images/eric.jpeg" alt="Eric Roberto Fontana">
+                    <p class="nome-advogado">Eric Roberto Fontana</p>
+                    <p class="oab">OAB 360.980-SP</p>
+                </div>
+
+                <div class="advogado">
+                    <img src="extracted_images/erica.jpeg" alt="Erica Fontana">
+                    <p class="nome-advogado">Erica Fontana</p>
+                    <p class="oab">OAB 166.985-SP</p>
+                </div>
+            </div>
         </div>
-        <div class="advogado">
-          <img src="" alt="Erica Fontana" id="ericaImg">
-          <p class="nome-advogado">Erica Fontana</p>
-          <p class="oab">OAB 166.985-SP</p>
-        </div>
-      </div>
     </section>
 
+    <!-- Áreas de Atuação -->
     <section class="areas" id="areas">
-      <h2>ÁREAS DE ATUAÇÃO</h2>
-      <div class="areas-grid">
-        <div class="area">
-          <h3>Direito Previdenciário</h3>
-          <p>Aposentadorias, pensões, benefícios do INSS, revisões e planejamento previdenciário.</p>
+        <div class="areas-container">
+
+            <p class="servicos">NOSSOS SERVIÇOS</p>
+            <hr class="linha-servico">
+
+            <h2>ÁREAS DE ATUAÇÃO</h2>
+
+            <div class="areas-quadrados">
+
+                <div class="area">
+                    <i class="fas fa-balance-scale icone-area"></i>
+                    <h3>Direito Previdenciário</h3>
+                    <p>
+                        Aposentadorias, pensões, benefícios do INSS,
+                        revisões e planejamento previdenciário.
+                    </p>
+                </div>
+
+                <div class="area">
+                    <i class="fas fa-briefcase icone-area"></i>
+                    <h3>Direito Trabalhista</h3>
+                    <p>
+                        Rescisões, horas extras, assédio moral,
+                        acidentes de trabalho, indenizações e defesa dos
+                        direitos do trabalhador.
+                    </p>
+                </div>
+
+                <div class="area">
+                    <i class="fas fa-gavel icone-area"></i>
+                    <h3>Civil</h3>
+                    <p>
+                        Inventário, usucapião, regularização de imóveis,
+                        danos morais.
+                    </p>
+                </div>
+
+            </div>
         </div>
-        <div class="area">
-          <h3>Direito Trabalhista</h3>
-          <p>Rescisões, horas extras, assédio moral, acidentes de trabalho, indenizações e defesa dos direitos do trabalhador.</p>
-        </div>
-        <div class="area">
-          <h3>Civil</h3>
-          <p>Inventário, usucapião, regularização de imóveis, danos morais.</p>
-        </div>
-      </div>
     </section>
 
+    <!-- Avaliações -->
     <section class="avaliacoes" id="avaliacoes">
-      <h2>AVALIAÇÕES</h2>
-      <p class="muted">Confira o que nossos clientes dizem sobre nós.</p>
-      <!-- se quiser, cole aqui o widget do Elfsight; sem ele a página abre normalmente -->
+        <div class="avaliacoes-container">
+            <h2>AVALIAÇÕES</h2>
+            <p class="aviso">Confira o que nossos clientes dizem sobre nós:</p>
+
+            <!-- Widget Elfsight -->
+            <div class="elfsight-app-e4fb9f81-90b2-44a8-a412-9a4db66f6830"></div>
+        </div>
     </section>
 
+    <!-- Contato -->
     <section class="contato" id="contato">
-      <h2>CONTATO</h2>
-      <div class="contato-grid">
-        <div class="contato-card">
-          <h3>Fontana & Fontana</h3>
-          <p><strong>WhatsApp:</strong> <a href="https://wa.me/5511969112762" target="_blank" rel="noopener">+55 11 96911-2762</a></p>
-          <p><strong>Instagram:</strong> <a href="https://instagram.com/fontanaefontana_advogados" target="_blank" rel="noopener">@fontanaefontana_advogados</a></p>
-          <p><strong>Endereço:</strong><br>Rua Primeiro de Maio, 202 - Santo André - SP</p>
+        <div class="contato-container">
+            <h2>CONTATO</h2>
+
+            <div class="contato-card-mapa">
+
+                <div class="contato-card">
+                    <h3>Fontana & Fontana</h3>
+
+                    <p>
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/5511969112762" target="_blank">WhatsApp</a>
+                    </p>
+
+                    <p>
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://instagram.com/fontanaefontana_advogados" target="_blank">Instagram</a>
+                    </p>
+                </div>
+
+                <div class="mapa-contato">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.789227822327!2d-46.53483998447457!3d-23.667774367673524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57d0eb85fcf1%3A0x1c3c2445b0edc3e3!2sR.%20Primeiro%20de%20Maio%2C%20202%20-%20Centro%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009015-040!5e0!3m2!1spt-BR!2sbr!4v1696661987654!5m2!1spt-BR!2sbr"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
         </div>
-        <div class="mapa">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.789227822327!2d-46.53483998447457!3d-23.667774367673524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57d0eb85fcf1%3A0x1c3c2445b0edc3e3!2sR.%20Primeiro%20de%20Maio%2C%20202%20-%20Centro%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009015-040!5e0!3m2!1spt-BR!2sbr!4v1696661987654!5m2!1spt-BR!2sbr" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Mapa do escritório"></iframe>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <footer>
-    <p><strong>Fontana & Fontana</strong></p>
-    <p>+55 11 96911-2762 · @ericafontana.adv</p>
-    <p>Rua Primeiro de Maio, 202 - Santo André - SP</p>
-  </footer>
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
 
-  <script>
-    // comportamento menu mobile + ajustes simples
-    (function(){
-      const root = document.documentElement;
-      const hamb = document.getElementById('hambBtn');
-      const nav = document.getElementById('mainNav');
-      const imgs = {
-        logo: document.getElementById('logoImg'),
-        eric: document.getElementById('ericImg'),
-        erica: document.getElementById('ericaImg')
-      };
+            <div class="footer-info">
+                <p>
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/5511969112762" target="_blank">+55 11 96911-2762</a>
+                </p>
 
-      // atribuir imagens só se existirem nos caminhos locais (evita erro)
-      // troque os caminhos abaixo se quiser usar arquivos locais.
-      imgs.logo.src = 'extracted_images/IMG_0722.png.png';
-      imgs.eric.src = 'extracted_images/eric.jpeg';
-      imgs.erica.src = 'extracted_images/erica.jpeg';
+                <p>
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://instagram.com/ericafontana.adv" target="_blank">@ericafontana.adv</a>
+                </p>
 
-      // toggle nav
-      hamb && hamb.addEventListener('click', function(){
-        const open = nav.classList.toggle('open');
-        hamb.textContent = open ? '✕' : '☰';
-        hamb.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-      });
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Rua Primeiro de Maio, 202 - Centro de Santo André, CEP 09015-040, CJ 304
+                </p>
+            </div>
 
-      // fechar nav ao clicar num link (melhora UX)
-      document.querySelectorAll('nav a').forEach(a=>{
-        a.addEventListener('click', ()=> {
-          if(nav.classList.contains('open')) {
-            nav.classList.remove('open');
-            hamb.textContent = '☰';
-          }
-        });
-      });
+        </div>
+    </footer>
 
-      // pequena correção de altura do header em variáveis se necessário
-      function setHeaderVar(){
-        const h = document.querySelector('header').getBoundingClientRect().height;
-        root.style.setProperty('--header-h', Math.round(h)+'px');
-        document.querySelector('.topo-rodape').style.marginTop = '0'; // já ok
-      }
-      setHeaderVar();
-      window.addEventListener('resize', setHeaderVar);
-    })();
-  </script>
+    <!-- Scroll suave -->
+    <script>
+        const links = document.querySelectorAll('nav ul li a');
+
+        for (const link of links) {
+            link.addEventListener('click', function (e) {
+                if (this.hash !== "") {
+                    e.preventDefault();
+                    const hash = this.hash;
+
+                    document.querySelector(hash).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
