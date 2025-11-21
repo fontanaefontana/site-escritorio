@@ -30,6 +30,13 @@
                  onerror="this.src='https://via.placeholder.com/200x60?text=Logo';">
         </div>
 
+        <!-- Botão Hambúrguer -->
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="#">Início</a></li>
@@ -39,11 +46,13 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+
+        <!-- Overlay -->
+        <div class="overlay"></div>
     </header>
 
     <!-- Faixa azul abaixo do header -->
     <div class="topo-rodape">
-        Atendimento especializado em Direito Previdenciário e Trabalhista
     </div>
 
     <!-- Banner -->
@@ -184,6 +193,22 @@
                 }
             });
         }
+    </script>
+
+    <!-- Menu Hambúrguer Lateral -->
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+        const overlay = document.querySelector('.overlay');
+
+        function toggleMenu() {
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu); // clicar fora fecha
     </script>
 
 </body>
