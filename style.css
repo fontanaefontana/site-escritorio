@@ -75,18 +75,6 @@ nav ul li a:hover {
 }
 
 /* ============================
-   FAIXA AZUL
-============================ */
-.topo-rodape {
-    background-color: #0D1F4D;
-    color: #fff;
-    padding: 30px 20px;
-    text-align: center;
-    font-family: 'Lora', serif;
-    font-size: 16px;
-}
-
-/* ============================
    BANNER
 ============================ */
 .banner {
